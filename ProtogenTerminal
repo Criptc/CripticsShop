@@ -96,6 +96,7 @@ echo TheFatRat is currently zipped, unziping...
 set PATH=%PATH%;C:\Program Files\7-Zip\
 7z e %spot%\TheFatRat-master.zip && timeout /t 1 > nul && del %spot%\TheFatRat-master.zip
 echo unziped
+REN TheFatRat-master TheFatRat
 timeout /t 1 > nul
 goto start
 
