@@ -6,8 +6,6 @@ echo starting
 if not exist C:\Users\%username%\ProtogenTerminal copy ProtogenTerminal C:\Users\%username% && goto start
 cd C:\Users\%username%\ProtogenTerminal
 if not exist %ProgramFiles%\7-Zip && echo 7-zip not found, downloading... && wget https://www.7-zip.org/a/7z2107-x64.exe && timeout /t 1 > nul && start C:\Users\%username%\Downloads\7z2107-x64.exe && goto start
-if exist C:\Users\%username%\ProtogenTerminal\TheFatRat-master.zip goto zipper
-if not exist C:\Users\%username%\ProtogenTerminal\TheFatrat wget https://github.com/Criptc/TheFatRat/archive/refs/heads/master.zip && goto start
 set spot=C:\Users\%username%\ProtogenTerminal
 set /p Name=<C:\Users\%username%\ProtogenTerminal\Name.txt
 if not exist %Name%\Dos.bat goto makeer
@@ -92,11 +90,11 @@ cls
 goto start
 
 :zipper
-echo TheFatRat is currently zipped, unziping...
+echo tool is currently zipped, unziping...
 set PATH=%PATH%;C:\Program Files\7-Zip\
-7z e %spot%\TheFatRat-master.zip && timeout /t 1 > nul && del %spot%\TheFatRat-master.zip
+7z e %spot%\tool-master.zip && timeout /t 1 > nul && del %spot%\tool-master.zip
 echo unziped
-REN TheFatRat-master TheFatRat
+REN tool-master tool
 timeout /t 1 > nul
 goto start
 
